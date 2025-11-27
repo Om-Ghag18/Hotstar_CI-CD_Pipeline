@@ -1,0 +1,17 @@
+#AKMS
+apiVersion: v1
+kind: Service
+metadata:
+  name: hotstar-service
+  labels:
+    app: hotstar-services-eks
+    env: dev-eks
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+  selector:
+    app: hotstar
+    env: dev-eks

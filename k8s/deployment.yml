@@ -1,0 +1,27 @@
+#AKMS
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotstar-deployment
+  labels:
+    app: hotstar
+    env: dev
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotstar
+      env: dev
+  template:
+    metadata:
+      labels:
+        app: hotstar
+        env: dev
+    spec:
+      containers:
+        - name: hotstar
+          image: devopsdecode/april-2025:v1
+          ports:
+          - containerPort: 3000

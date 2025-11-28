@@ -1,23 +1,6 @@
 #FREECONTAINER
 
-#FROM ubuntu:latest
-#RUN apt update -y
-#RUN apt install nodejs -y 
-#RUN apt install npm -g
-#WORKDIR /app
-#COPY package.json pacakge-lock.json /app/
-#RUN npm install
-#COPY . /app/
-#EXPOSE 3000
-#ENTRYPOINT [ "npm" ]
-#cmd ["g"], ["deamon off;"]
-
-
-FROM ubuntu:latest
-
-RUN apt update -y
-RUN apt install -y nodejs
-RUN apt install -y npm
+FROM node:alpine
 
 WORKDIR /app
 
@@ -29,6 +12,4 @@ COPY . /app/
 
 EXPOSE 3000
 
-ENTRYPOINT ["npm"]
-
-CMD ["start"]
+CMD ["npm","start"]

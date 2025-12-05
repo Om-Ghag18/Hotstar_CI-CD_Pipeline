@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: hotstar-service
   labels:
-    app: hotstar-services-eks
+    app: hotstar
 spec:
   type: LoadBalancer
   ports:

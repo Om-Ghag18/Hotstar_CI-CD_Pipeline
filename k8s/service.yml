@@ -5,7 +5,6 @@ metadata:
   name: hotstar-service
   labels:
     app: hotstar-services-eks
-    env: dev-eks
 spec:
   type: LoadBalancer
   ports:
@@ -14,4 +13,4 @@ spec:
       targetPort: 3000
   selector:
     app: hotstar
-    env: dev-eks
+   

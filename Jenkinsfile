@@ -6,7 +6,6 @@ pipeline{
     }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
-        SONAR_AUTH_TOKEN = credentials('sonar-token')
     }
     stages {
         stage('Sonarqube Analysis'){

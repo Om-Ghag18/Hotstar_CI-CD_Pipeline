@@ -41,7 +41,7 @@ pipeline{
                 script{
                     withDockerRegistry(credentialsId: 'docker') {
                         sh 'docker-scout quickview'
-                        sh 'docker-scout cves .'
+                        sh 'docker-scout cves'
                 }
             }
           }

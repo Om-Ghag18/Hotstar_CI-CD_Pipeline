@@ -9,11 +9,6 @@ pipeline{
         SONAR_AUTH_TOKEN = credentials('sonar-token')
     }
     stages {
-        stage('git clone'){
-            steps {
-                git branch: 'main', url: 'https://github.com/Om-Ghag18/Hotstar_CI-CD_Pipeline.git'
-            }
-        }
         stage('Sonarqube Analysis'){
             steps {
                 withSonarQubeEnv('sonar-server'){
@@ -47,7 +42,7 @@ pipeline{
                 script{
                     withDockerRegistry(credentialsId: 'docker') {
                         sh 'docker-scout quickview'
-                        sh 'docker-scout cves'
+                        sh 'docker-scout cves .'
                 }
             }
           }

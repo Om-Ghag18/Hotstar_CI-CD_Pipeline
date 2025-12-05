@@ -22,6 +22,6 @@ spec:
     spec:
       containers:
         - name: hotstar
-          image: omghag18/hotsart:latest
+          image: omghag18/hotstar:latest
           ports:
           - containerPort: 3000

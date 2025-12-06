@@ -23,12 +23,6 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
   role       = aws_iam_role.eks_cluster_role.name
 }
 
-#resource "aws_iam_role_policy_attachment" "eks_vpc_resource_controller" {
-  #policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
- # role       = aws_iam_role.eks_cluster_role.name
-#}
-
-
 # Default VPC + Subnets
 
 data "aws_vpc" "default" {
@@ -48,7 +42,6 @@ data "aws_subnets" "default" {
 resource "aws_eks_cluster" "eks" {
   name     = "Hotstar_EKS_cluster"
   role_arn = aws_iam_role.eks_cluster_role.arn
-  #version  = "1.29"
 
   vpc_config {
     subnet_ids = data.aws_subnets.default.ids
@@ -56,7 +49,6 @@ resource "aws_eks_cluster" "eks" {
 
   depends_on = [
     aws_iam_role_policy_attachment.eks_cluster_policy,
-    #aws_iam_role_policy_attachment.eks_vpc_resource_controller
   ]
 }
 
@@ -119,13 +111,3 @@ resource "aws_eks_node_group" "node_group" {
   ]
 }
 
-
-# Outputs
-
-#output "eks_cluster_name" {
-#  value = aws_eks_cluster.eks.name
-#}
-
-#output "eks_cluster_endpoint" {
- # value = aws_eks_cluster.eks.endpoint
-#}
